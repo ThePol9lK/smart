@@ -1,0 +1,102 @@
+.educate__indentation{
+    margin-top: 102px;
+    margin-bottom: 130px;
+}
+
+.educate{
+    
+}
+
+.midle-school {
+}
+.educate:not(:last-child){
+    margin-bottom: 50px;
+}
+.educate__wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 53px 60px 113px 87px;
+    border-radius: 25px;
+    background-color: #fff;
+    border: 10px solid #DCDCDC;
+}
+
+
+
+.educate__header {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 105px;
+}
+
+.educate__header ::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    transform: translateX(-50%);
+    width: 50%;
+    height: 2px;
+    background-color: #E74040;
+  }
+.educate__title {
+}
+.educate__link {
+    padding-right: 17px;
+    text-align: right;
+    font-family: SF Pro Display;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase; 
+    color: #737373;
+
+    background-image: url("../../img/course/arrow.svg");
+    background-repeat: no-repeat;
+    background-position: center right;
+    
+}
+.educate__list {
+    display: flex;
+    gap: 34px;
+    flex-wrap: wrap;}
+.educate__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 348px;
+    border-radius: 25px; 
+    background-color: #fff;
+    filter: drop-shadow(5px 5px 10px #737373);
+}
+.educate__item-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 0px 31px 29px;
+}
+.educate__descr {
+    letter-spacing: 2px;
+    /* color: var(--bold-redtxt-color); */
+}
+.educate__icon{
+    align-self: center;
+    transform: translateY(-50px);
+}
+.educate__btn {
+    padding: 29px 28px 17px;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    color: #FFF;
+    text-align: right;
+    font-family: SF Pro Text;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%; /* 37.5px */    
+    background: #96BB7C;
+    text-align: center;
+}

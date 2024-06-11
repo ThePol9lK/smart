@@ -1,0 +1,143 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}
+    <title>Умней  - Курсы</title>
+{% endblock %}
+
+{% block css %}
+<!-- Подключение CSS библиотек -->
+    <!-- Animate.css -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <!-- JustValidate -->
+    <link rel="stylesheet" href="{% static 'main\css\libs\justValidateTooltip.min.css' %}">
+    <!-- ПОДКЛЮЧЕНИЕ CCS -->
+    <link rel="stylesheet" href="{% static 'main\css\main-tag\course.css' %}">
+    <link rel="stylesheet" href="{% static 'main\css\block\modal.css' %}">
+    <link rel="stylesheet" href="{% static 'main\css\base\media.css' %}">
+{% endblock %}
+
+{% block header-nav %}
+    <div class="header-nav">
+        <ul class="header-nav__list">
+            <li class="header-nav__item"><a href="{% url 'home' %}" class="header-nav__link">Главная</a></li>
+            <li class="header-nav__item active-page"><a href="{% url 'course' %}" class="header-nav__link">Курсы</a></li>
+            <li class="header-nav__item"><a href="{% url 'about' %}" class="header-nav__link">О&nbsp;нас</a></li>
+            <li class="header-nav__item"><a href="{% url 'contacts' %}" class="header-nav__link">Контакты</a></li>
+        </ul>
+    </div>
+
+    {% include 'main/header-nav.html' %}
+    {% include 'main/burger.html' %}
+{% endblock %}
+
+{% block main %}
+        <main class="main educate__indentation">
+
+            <!-- Курсы -->
+            <section class="midle-school educate" data-aos="flip-left">
+                <div class="container">
+                    <div class="educate__wrapper green-line">
+
+                        <div class="educate__header">
+                            <h3 class="educate__title section-title">Курсы</h3>
+                        </div>
+
+                        <ul class="educate__list">
+                            {% for course in courses %}
+                                <li class="educate__item">
+                                    <div class="educate__item-wrapper">
+    <!--                                    <img src="./img/school/apple_icon.svg" alt="icon" style="width: 50px;" class="educate__icon">-->
+                                        <p class="educate__descr section-descr">
+                                            {{ course.anons }}
+                                        </p>
+                                    </div>
+                                    <a href="{% url 'course-detail' course.title %}" class="educate__btn --green-light-green">{{ course.title }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+
+
+                    </div>
+
+                    {% include 'main/modal.html' %}
+            </section>
+
+            <!-- Повышение квалификации -->
+            <section class="preschool-education educate" data-aos="flip-right">
+                <div class="container">
+                    <div class="educate__wrapper yellow-line">
+
+                        <div class="educate__header">
+                            <h3 class="educate__title section-title">Повышение квалификации</h3>
+
+                        </div>
+
+                        <ul class="educate__list">
+                            {% for course in preSchool %}
+                                <li class="educate__item">
+                                    <div class="educate__item-wrapper">
+    <!--                                    <img src="./img/school/apple_icon.svg" alt="icon" style="width: 50px;" class="educate__icon">-->
+                                        <p class="educate__descr section-descr">
+                                            {{ course.anons }}
+                                        </p>
+                                    </div>
+                                    <a href="{% url 'course-detail2' course.title %}" class="educate__btn --beige-yellow">{{ course.title }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Профессиональная переподготовка -->
+            <section class="additional-education educate" data-aos="flip-left">
+                <div class="container">
+                    <div class="educate__wrapper red-line">
+
+                        <div class="educate__header">
+                            <h3 class="educate__title section-title">Профессиональная переподготовка</h3>
+                        </div>
+
+                        <ul class="educate__list">
+                            {% for course in extraClass %}
+                                <li class="educate__item">
+                                    <div class="educate__item-wrapper">
+    <!--                                    <img src="./img/school/apple_icon.svg" alt="icon" style="width: 50px;" class="educate__icon">-->
+                                        <p class="educate__descr section-descr">
+                                            {{ course.anons }}
+                                        </p>
+                                    </div>
+                                    <a href="{% url 'course-detail3' course.title %}" class="educate__btn --red-orange">{{ course.title }}</a>
+                                 </li>
+                            {% endfor %}
+                        </ul>
+
+
+                    </div>
+                </div>
+            </section>
+
+        </main>
+{% endblock %}
+
+{% block footer %}
+    {% include 'main/footer.html' %}
+{% endblock %}
+
+{% block MyJS %}
+    <!--  Библиотеки JS  -->
+    {% comment %} <script src="{% static 'main\js\libs\inputmask.min.js' %}"></script>
+    <script src="{% static 'main\js\libs\just-validate.min.js' %}"></script> {% endcomment %}
+    <!-- Мой JS -->
+    {% comment %} <script src="{% static 'main\js\valid.js' %}"></script> {% endcomment %}
+    <script src="{% static 'main\js\modal-course.js' %}"></script>
+{% endblock %}
+
+
+

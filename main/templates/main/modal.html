@@ -1,0 +1,35 @@
+<!-- Модальое окно -->
+<div class="modal">
+        <div class="modal__box animate__animated ">
+
+            <!-- Кнопка закрытия модального окна -->
+            <div class="modal__btn-wrapper services__btn-close-pos animate__animated animate__delay-1s">
+                <button class="modal__close-btn btn btn-reset">
+                    <div class="closeModal"></div>
+                </button>
+            </div>
+
+            <div class="modal__wrapper ">
+                <h3 class="modal__title section-title">Записаться</h3>
+
+
+                <!-- Формы обратной связи -->
+                <form class="form js-form-connection animate__animated animate__delay-1s" method="post"  action="{% url 'send_message' %}"> 
+                    {% csrf_token %} 
+
+                    <div class="just-validate-tooltip-container">
+                        <input  type="text" name="name" data-validate-field="name" placeholder = "Ваше имя"    class="form__input ">
+                    </div>
+
+                    <div class="just-validate-tooltip-container">
+                        <input  type="tel"  name="phone" data-validate-field="tel"  placeholder = "Ваш телефон" class="form__input section-descr">
+                    </div>
+
+                    <button type="submit" class="form__btn btn btn-reset fcs-ripple-out ">Оставить заявку</button>
+                </form>
+                
+            </div>
+
+        </div>
+    </div>
+</div>

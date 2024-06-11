@@ -1,0 +1,36 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+
+{% block title %}
+    <title>Вход</title>
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'main\css\main-tag\log.css' %}">
+{% endblock %}
+
+
+{% block header-nav %}
+{% endblock %}
+
+{% block main %}
+
+            {% if error %}
+                {{err}}
+            {% endif %}
+
+            <main class="main center container">
+                <form method="post" class="log-form">
+                    {% csrf_token %}
+                    <h2 class="footer__nav-title h2 nav__title">ВХОД</h2>
+                    <input name="username"  class="log-form__input section-descr"   type="text"     placeholder="Логин">
+                    <input name="password"  class="log-form__input section-descr"   type="password" placeholder="Пароль">
+                    <button class="log-form__btn btn" type="submit">Войти</button>
+                    <a href="{% url 'register' %}" class="section-descr" style="text-transform: uppercase;">Регистрация</a>
+                </form>
+            </main>
+{% endblock %}
+
+{% block MyJS %}
+{% endblock %}

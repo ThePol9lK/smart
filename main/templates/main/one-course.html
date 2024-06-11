@@ -1,0 +1,72 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}
+    <title>Умней - Курс</title>
+{% endblock %}
+
+
+{% block css %}
+
+    <!-- Animate.css -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <!-- JustValidate -->
+    <link rel="stylesheet" href="{% static 'main\css\libs\justValidateTooltip.min.css' %}">
+    <link rel="stylesheet" href="{% static 'main\css\main-tag\one-course.css' %}">
+    <link rel="stylesheet" href="{% static 'main\css\block\modal.css' %}">
+    <link rel="stylesheet" href="{% static 'main\css\base\media.css' %}">
+{% endblock %}
+
+{% block header-nav %}
+    <div class="header-nav">
+        <ul class="header-nav__list">
+            <li class="header-nav__item"><a href="{% url 'home' %}" class="header-nav__link">Главная</a></li>
+            <li class="header-nav__item active-page"><a href="{% url 'course' %}" class="header-nav__link">Курсы</a></li>
+            <li class="header-nav__item"><a href="{% url 'about' %}" class="header-nav__link">О&nbsp;нас</a></li>
+            <li class="header-nav__item"><a href="{% url 'contacts' %}" class="header-nav__link">Контакты</a></li>
+        </ul>
+    </div>
+
+    {% include 'main/header-nav.html' %}
+
+    {% include 'main/burger.html' %}
+{% endblock %}
+
+{% block main %}
+    <main class="main">
+            <section class="service">
+                <div class="container">
+                    <div class="service__wrapper">
+                        <h1 class="service__title section-title">{{ desk.title }}</h1>
+                        <p class="service__descr section-descr">
+                           {{ desk.text }}
+                        </p>
+
+                        <div class="btn-wrapper service__btn">
+                            <button class="btn hero__btn service__btn-wide">Оставить заявку</button>
+                        </div>
+                    </div>
+                </div>
+
+                {% include 'main/modal.html' %}
+
+            </section>
+        </main>
+{% endblock %}
+
+
+{% block footer %}
+    {% include 'main/footer.html' %}
+{% endblock %}
+
+{% block MyJS %}
+    <!--  Библиотеки JS  -->
+    {% comment %} <script src="{% static 'main\js\libs\inputmask.min.js' %}"></script>
+    <script src="{% static 'main\js\libs\just-validate.min.js' %}"></script>
+    <!-- Мой JS -->
+    <script src="{% static 'main\js\valid.js' %}"></script> {% endcomment %}
+    <script src="{% static 'main\js\modal-1-course.js' %}"></script>
+{% endblock %}

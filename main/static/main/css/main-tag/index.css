@@ -1,0 +1,320 @@
+/* HERO */
+.hero{
+    background-color: #DCDCDC;
+}
+
+.hero__wrapper {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+
+    padding-top: 157px;
+    padding-bottom: 130px;
+}
+.hero__content {
+    max-width: 895px;
+}
+.hero__title {
+    font-family: SF Pro Display;
+    font-size: 69px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 110%; /* 75.9px */
+    margin-bottom: 57px;
+
+    color: #252B42;
+}
+.hero__title--bold {
+    color: var(--bold-redtxt-color);
+}
+.hero__descr {
+    margin-bottom: 80px;
+    letter-spacing: 2px;
+}
+.hero__btn {
+    padding: 13px 46px;
+    color: var(--color-green);
+}
+
+
+/* Cтили для позицирования картинки методом 1 */
+/* .hero__img {
+    position: absolute;
+    right: -63px;
+    top: -27px;
+    pointer-events: none;
+    z-index: -1;
+} */
+
+/* Cтили для позицирования картинки методом 2 */
+.hero__bg1{
+    background-image: url('../../img/index/hero/girl.png') ;
+    background-repeat: no-repeat;
+    background-position: 951px 22px;
+    background-size:auto;
+}
+
+
+
+/* SCHOOL */
+
+:root{
+    --radius: 25px;
+    /*
+        Переменная для отступа справа на главной странице в секции school.
+        Создание переменной необходимо для упращения работы при адаптивной верстки.
+        Кнопка выбрать курс прижата к краю карточки, когда остальное его содержимое имеет отступ
+        Идея в том, чтобы менять значения перееменной отступа справа в одном и автоматически прижимать
+        кнопку к краю, у которой значений translatex равен переменной
+    */
+     --school-padding-right: 36px;
+}
+.school__list {
+    display: flex;
+    gap: 34px;
+    transform: translateY(-20%);
+    filter: drop-shadow(5px 5px 10px #737373);
+
+}
+.school__item {
+    display: flex;
+    flex-direction: column;
+    padding: 25px var(--school-padding-right) 0 39px;
+    /* max-width: 541px; */
+    /* border-radius: var(--radius); */
+    background-color: #fff;
+}
+.school__icon{
+    width: 72px;
+    height: 72px;
+}
+.school__title {
+    position: relative;
+    margin-bottom: 20px;
+    color: #252B42;
+    font-family: SF Pro Display;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.school__title::after {
+    content: '';
+    position: absolute;
+    left: 10%; 
+    bottom: -5px; /* Располагаем полосу ниже текста заголовка */
+    transform: translateX(-50%); /* Центрируем полосу относительно точки начала */
+    width: 20%; /* Длина полосы */
+    height: 2px; /* Ширина полосы */
+    background-color: #E74040; /* Цвет полосы */
+}
+
+.school__descr {
+    margin-bottom: auto;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+}
+.school__btn {
+    margin-bottom: 20px;
+    padding: 23px 34px 21px;
+    border-radius: 0;
+    border-radius: 20px;
+    color: var(--primary-color-white);
+
+    /* transform: translateX(var(--school-padding-right)); */
+}
+
+/* ABOUT */
+
+.about__wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    max-width: 819px;
+    padding-top: 265px;
+    padding-bottom: 179px;
+}
+.about__bg {
+    position: relative;
+    background-image: url('../../img/index/about/little-girls.png');
+    background-repeat: no-repeat;
+    background-position: 4.3% 53%;
+    background-size: 45% 75%;
+}
+.about__content {
+    margin-bottom: 74px;
+}
+.about__title {
+    margin-bottom: 35px;
+}
+.about__descr {
+    letter-spacing: 2px;
+}
+.counters {
+    display: flex;
+    gap: 97px;
+}
+.counters__number {
+    font-family: SF Pro Display;
+    font-size: 90px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.counters__name {
+    font-family: SF Pro Text;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%; /* 37.5px */
+}
+.--orange{
+    color: #737373
+
+}
+.--green{
+    color: #96BB7C
+}
+
+/* REVIEWS */
+
+.reviews__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 77px;
+}
+.reviews__link {
+    padding-right: 18px;
+    font-family: SF Pro Display;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+    color: #737373;
+    background-image: url('../../img/index/reviews/reviews-arrow.svg');
+    background-repeat: no-repeat;
+    background-position: center right;
+
+}
+.reviews__list {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+.reviews__item-wrapper{
+    display: flex;
+    flex-direction: column; /* Вертикальное выравнивание */
+    align-items: center; /* Горизонтальное выравнивание по центру */
+    text-align: center; /* Центрирование текста внутри блоков */
+    padding: 46.12px 12px 0 27px;
+}
+.reviews__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 400px;
+    /* border-radius: 25px; */
+    background-color: white;
+    filter: drop-shadow(5px 5px 10px #737373);
+}
+.reviews__grade {
+    margin-bottom: 12px;
+}
+.reviews__descr {
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+    line-height: 143.5%;
+}
+.reviews__parent{
+    width: 128px;
+}
+.reviews__reviewer {
+    padding: 29px 28px 17px;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+    font-style: normal;
+    line-height: 150%;
+    text-align: center;
+    letter-spacing: 2px;
+    color: white;
+    background: #96BB7C;
+    
+}
+/* .--green-light-green {
+    background: linear-gradient(180deg, rgba(148,206,0,1) 20%, rgba(193,228,0,1) 20%);
+}
+.--orange-red {
+    background: linear-gradient(180deg, rgba(255,117,35,1) 40%, rgba(255,58,69,1) 40%);
+}
+.--beige-yellow {
+    background: linear-gradient(180deg, rgba(255,226,123,1) 30%, rgba(255,195,0,1) 30%);
+}
+.--light-green-green- {
+    background: linear-gradient(180deg, rgba(148,206,0,1) 20%, rgba(193,228,0,1) 20%);
+}
+.--red-orange {
+    background: linear-gradient(180deg, rgba(255,58,69,1)40%, rgba(255,117,35,1) 40%);
+} */
+
+/* APPLICATION */
+
+
+.application{
+    margin: 50px 0 0 0;
+    background-color:  #FFF2F3;
+}
+
+.application__wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 200px;
+    padding-bottom: 200px;
+  }
+
+.application__title {
+    position: relative;
+    margin-bottom: 12px;
+}
+
+.application__title::after{
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    transform: translateX(-50%);
+    width: 50%;
+    height: 2px;
+    background-color: #E74040;
+}
+.application__descr {
+    margin-bottom: 37px;
+    letter-spacing: 2px;
+}
+.form-application {
+    display: flex;
+}
+.form-application__tel {
+    padding: 20px 30px 21px 32px;
+    font-family: SF Pro Display;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    color: #737373;
+    background-color: white;
+    width: 600px;
+    padding-left: 32px;
+}
+.form-application__btn {
+    padding: 23px 16px 22px 15px;
+    background-color: #96BB7C;
+
+}

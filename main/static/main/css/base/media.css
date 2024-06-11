@@ -1,0 +1,563 @@
+/* HERO */
+@media(max-width : 1600px){
+    .questions__wrapper{
+        display: flex;
+        flex-direction: column;
+        max-width: 100%;
+    }
+    .question__bg {
+        background-image: url("");
+    }
+    .hero__bg {
+        background-position: 879px 125px;
+        background-size: 450px 400px;
+    }
+    .about__bg{
+        background-position: 4.3% 39%;
+        background-size: 450px 400px;
+    }
+    .about__bg::after{
+        background-image: url("");
+    }
+    .place::after{
+        background-image: url("");
+    }
+    .educate__list {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .contacts__wrapper{
+        flex-direction: column;
+        align-items: center;
+    }
+    .contacts__content {
+        margin-bottom: 50px;
+    }
+
+}
+
+@media(max-width : 1366px){
+    .footer__logo-wrapper{
+        display: block;
+    }
+
+.hero__btn{
+width: 100% !important;
+padding: 13px 46px !important;
+}
+
+.hero__btn::before {
+    left: 140px;
+  }
+    .future-edctn__wrapper{
+        flex-direction: column;
+        gap: 20px;
+    }
+    .hero__bg, .about__bg {
+        background-image: url("");
+    }
+    .hero__wrapper::after, .about__bg::after, .application__wrapper::after {
+        background-image:url("");
+    }
+    .hero__wrapper{
+        padding-top: 117px;
+        padding-bottom: 128px;
+        justify-content: center;
+    }
+    .about__wrapper{
+        margin-right: auto;
+        padding-top: 225px;
+        padding-bottom: 139px;
+    }
+    .about__title{
+        text-align: center;
+    }
+    .about__descr{
+        text-align: center;
+    }
+    .counters{
+        justify-content: center;
+    }
+    .application__wrapper{
+        padding-top: 150px;
+        padding-bottom: 150px;
+    }
+    .hero__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .hero__title, .hero__descr{
+        text-align: center;
+    }
+    .footer{
+        padding: 37px 0 131px 0;
+    }
+
+    .footer-grid{
+        grid-template-columns: repeat(3, auto);
+        gap: 55px;
+    }
+    .footer-grid__logo{
+        grid-column: 1/4;
+        justify-self: center;
+        grid-row: 2/3;
+    }
+    .footer-grid__logo a{
+        width: 100%;
+        display: inline-block;
+        display: flex;
+        justify-content: center;
+    }
+
+    .footer-grid__logo p{
+        max-width: 500px;
+        text-align: center;
+    }
+
+}
+
+@media(max-width : 1200px){
+    .school__list {
+        transform: translateY(-10%);
+    }
+    .map{
+        width: 100%;
+        height: 200px;
+    }
+    .contacts__content{
+        width: 100%;
+        align-items: baseline;
+    }
+    .contacts__block{
+        max-width: 250px;
+        flex-direction: column;
+    }
+    .contacts__phone-link{
+        padding-top: 6px;
+        padding-bottom: 6px;
+    }
+    .header-nav__list{
+        gap: 30px;
+    }
+    .btn{
+        padding: 13px 25px;
+    }
+    .hero__btn::before{
+        left: 175px;
+    }
+    .school__list{
+        gap: 14px;
+        flex-wrap: wrap;
+    }
+    .school__item{
+        padding: 20px var(--school-padding-right) 0 20px;
+    }
+    .about__wrapper{
+        padding-top: 125px;
+    }
+}
+
+
+@media(max-width : 1024px){
+
+    
+    .footer-grid__logo{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .application {
+        margin: 35px 0 0 0;
+    }
+    .reviews__parent{
+        width: 108px;
+    }
+
+    .school__icon {
+        width: 62px;
+    }
+    .service__wrapper::after{
+        background-image: url("");
+    }
+    .service__title {
+        margin-bottom: 20px;
+    }
+    .service__descr + .service__descr {
+        margin-top: 20px;
+    }
+    .service__btn {
+        margin-top: 40px;
+    }
+    .accordion__title{
+        font-size: 40px !important;
+    }
+    .reviews__link, .educate__link{
+        font-size: 14px;
+    }
+    .header__logo{
+        width: 200px;
+    }
+    .footer {
+        padding: 50px 0 80px 0;
+    }
+    .footer__logo{
+        width: 200px;
+        margin-bottom: 20px;
+    }
+    .footer-grid{
+        row-gap: 70px;
+    }
+    .hero__wrapper {
+        padding-top: 80px;
+        padding-bottom: 100px;
+    }
+    .hero__title{
+        margin-bottom: 27px;
+        font-size: 60px;
+    }
+    .hero__descr {
+        margin-bottom: 40px;
+    }
+    .section-title{
+        font-size: 48px;
+    }
+    .section-descr, .form-application__tel{
+        font-size: 16px;
+    }
+    .school__list{
+        justify-content: center;
+    }
+    .school__btn{
+        margin-top: 20px;
+    }
+    .about__wrapper {
+        padding-top: 70px;
+        padding-bottom: 100px;
+    }
+    .about__title {
+    margin-bottom: 15px;
+    }
+    .about__content {
+        margin-bottom: 34px;
+    }
+    .reviews__header{
+        margin-bottom: 30px;
+    }
+    .reviews__item-wrapper{
+        padding: 20px 10px 0 15px;
+    }
+    .reviews__list, .educate__list {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    .reviews__item, .educate__item{
+        /* height: auto; */
+        max-width: 250px;
+    }
+    .reviews__grade {
+        margin-bottom: 10px;
+        width: 150px;
+    }
+    .application__wrapper {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    .form-application__tel{
+        width: 400px;
+        padding: 10px 0px 10px 20px;
+    }
+    .form-application__btn {
+        padding: 15px 20px 10px 15px;
+    }
+    .footer__nav-title {
+        margin-bottom: 10px;
+    }
+}
+
+@media(max-width : 768px){
+    .reviews__parent{
+        width: 78px;
+    }
+
+    .school__list {
+        transform: translateY(-2%);
+    }
+
+    .school__icon {
+        width: 52px;
+    }
+    .contacts__title{
+        font-size: 24px;
+    }
+    .educate__item-wrapper{
+        padding: 10px 0px 20px 15px;
+    }
+    .educate__header{
+        flex-direction: column;
+    }
+    .hero__title{
+        font-size: 50px;
+        margin-bottom: 10px;
+    }
+    .hero__descr {
+        margin-bottom: 25px;
+    }
+    .btn{
+        font-size: 16px;
+        padding: 5px 15px;
+    }
+    .hero__btn::after{
+        top: -10px;
+        bottom: -10px;
+        left: -10px;
+        right: -10px;
+        border-radius: 15px;
+    }
+    .hero__btn::before{
+        height: 10px;
+        left: 136px;
+        top: -10px;
+    }
+    .hero__wrapper {
+        padding-top: 40px;
+        padding-bottom: 50px;
+    }
+    .school__title {
+        margin-bottom: 5px;
+    }
+    .reviews__header{
+        flex-direction: column;
+        gap: 10px;
+    }
+    .reviews__title{
+        text-align: center;
+    }
+    .reviews__item, .educate__item{
+        max-width: 200px;
+    }
+    .reviews__list, .educate__list{
+        gap: 10px;
+        row-gap: 45px;
+    }
+    .educate__header{
+        margin-bottom: 70px;
+    }
+    .educate__btn{
+        font-size: 20px;
+    }
+    .reviews__reviewer{
+        font-size: 18px;
+    }
+    .reviews__descr {
+        margin-bottom: 10px;
+    }
+    .social-item__img{
+        width: 70%;
+    }
+    .phone-wrapper{
+        width: 155px;
+    }
+    .footer-grid__nav {
+        align-self: baseline;
+    }
+    .application__descr{
+        text-align: center;
+    }
+}
+
+@media(max-width : 576px){
+    .footer__logo-img{
+        width: 80px;
+    }
+    .form-application__tel{
+        width: 300px;
+    }
+    .application {
+        margin: 25px 0 0 0;
+    }
+    .reviews__parent{
+        width: 68px;
+    }
+
+    .school__icon {
+        width: 42px;
+    }
+    .educate__link{
+        text-align: center;
+    }
+    .educate__icon{
+        width: 35px !important;
+        transform: translateY(-25px);
+    }
+    .educate__title{
+        text-align: center;
+    }
+    .educate__btn{
+        padding: 20px 20px 10px;
+        font-size: 16px;
+    }
+    .header__logo{
+        width: 130px;
+    }
+    .footer-grid {
+        grid-template-columns: 200px 130px;
+    }
+    .footer-grid__logo{
+        grid-column: 1/3;
+    }
+    .footer-grid__contact{
+        grid-column: 1/3;
+        grid-row: 3/4;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .social-list{
+        margin-bottom: 0;
+        gap: 20px;
+    }
+    .counters__number{
+        font-size: 50px;
+    }
+}
+
+@media(max-width : 480px){
+
+    .footer__logo-img{
+        width: 60px;
+    }
+    .form-application__tel{
+        width: 200px;
+    }
+
+    .reviews__parent{
+        width: 58px;
+    }
+    .service__title {
+        padding-left: 25px;
+    }
+    .future-edctn {
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+    .question{
+        margin-bottom: 50px;
+    }
+    .accordion__title{
+        font-size: 18px !important;
+    }
+    .accordion {
+        padding: 10px 0;
+    }
+    .contacts__wrapper{
+        padding: 10px;
+    }
+    .social__link img{
+        width: 20px;
+    }
+    .contacts__block {
+        max-width: 160px;
+    }
+    .contacts__phone-link {
+        padding-top: 7px;
+        padding-bottom: 7px;
+        background-size: 12px;
+        padding: 20px;
+      }
+    .educate__item-wrapper {
+        padding: 10px 0px 15px 5px;
+    }
+    .educate__list{
+        column-gap: 5px;
+    }
+    .educate__wrapper{
+        padding: 10px 15px 30px 15px;
+    }
+    .educate__item{
+        width: 125px;
+    }
+    .educate__btn {
+        font-size: 14px;
+    }
+    .educate__indentation {
+        margin-top: 70px;
+        margin-bottom: 80px;
+    }
+    .hero__title{
+        font-size: 20px;
+    }
+    .service__title{
+        font-size: 24px;
+    }
+    .section-title{
+        font-size: 24px;
+    }
+    .section-descr{
+        font-size: 12px;
+    }
+    .btn{
+        font-size: 12px;
+    }
+    .hero__btn::before {
+        width: 20px;
+        left: 115px;
+    }
+    .school__title {
+        font-size: 24px;
+    }
+    :root{
+        --school-padding-right: 10px;
+    }
+
+    .school__item {
+        padding: 10px var(--school-padding-right) 0 15px;
+    }
+    .counters__name{
+        font-size: 18px;
+    }
+    .reviews__item, .educate__item{
+        max-width: 140px;
+    }
+    .reviews__item-wrapper {
+        padding: 10px 5px 0 5px;
+    }
+    .reviews__grade{
+        width: 90px;
+    }
+    .reviews__reviewer {
+        padding: 10px 10px 5px;
+        font-size: 12px;
+    }
+    .footer__nav-title{
+        font-size: 18px;
+    }
+    .footer__logo{
+        width: 130px;
+    }
+    .course-list, .footer-nav__list{
+        gap: 5px;
+    }
+    .footer-grid {
+        grid-template-columns: 115px 100px;
+    }
+    .course__item , .footer-nav__item{
+        letter-spacing: 0;
+    }
+    .footer {
+        padding: 79px 0 80px 0;
+    }
+    .yellow-line::before, .yellow-line::after, .green-line::before, .green-line::after,
+    .red-line::before, .red-line::after{
+        width: 10px;
+    }
+    .place{
+        margin-bottom: 50px;
+    }
+    .place__descr {
+        margin-bottom: 10px;
+    }
+
+}

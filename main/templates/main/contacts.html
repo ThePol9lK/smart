@@ -1,0 +1,96 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+
+{% block title %}
+    <title>Умней - Контакты</title>
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'main\css\block\map.css' %}">
+    <link rel="stylesheet" href="{% static 'main\css\main-tag\contacts.css' %}">
+    <link rel="stylesheet" href="{% static 'main\css\block\custom-select.css' %}">
+    <link rel="stylesheet" href="{% static 'main\css\base\media.css' %}">
+    <style type="text/css">
+        @media(max-width : 1024px){
+            .contacts {
+                margin-top: 50px !important;
+                margin-bottom: 50px !important;
+            }
+        }
+    </style>
+{% endblock %}
+
+{% block header-nav %}
+    <div class="header-nav">
+
+        <ul class="header-nav__list">
+            <li class="header-nav__item"><a href="{% url 'home' %}" class="header-nav__link">Главная</a></li>
+            <li class="header-nav__item"><a href="{% url 'course' %}" class="header-nav__link">Курсы</a></li>
+            <li class="header-nav__item "><a href="{% url 'about' %}" class="header-nav__link">О&nbsp;нас</a></li>
+            <li class="header-nav__item active-page"><a href="{% url 'contacts' %}" class="header-nav__link">Контакты</a></li>
+        </ul>
+    </div>
+
+    {% include 'main/header-nav.html' %}
+
+    {% include 'main/burger.html' %}
+
+
+{% endblock %}
+
+{% block main %}
+    <main class="main">
+            <!-- Контакты -->
+            <section class="contacts" data-aos="zoom-in-up">
+                <div class="container">
+                    <div class="contacts__wrapper">
+
+                        <div class="map ymaps-layers-pane" id="map"></div>
+
+                        <div class="contacts__content">
+                            <div class="contacts__adress">
+                                <div class="contacts__block contacts__block--margin-botoom-56px">
+                                    <h3 class="contacts__title  section-title">Адресс:</h3>
+                                    <p class="contacts__descr section-descr">109029, г. Москва, ул. Нижегородская, д. 32 стр. 4, ч.неж.пом 261. </p>
+                                </div>
+                                <div class="contacts__block">
+                                    <h3 class="contacts__title  section-title" >График работы:</h3>
+                                    <p class="contacts__descr section-descr">ПН-ПТ с 09:00 до 18:00, СБ-ВС выходные</p>
+                                </div>
+                            </div>
+                            <div class="contacts__contacts">
+                                <div class="contacts__block contacts__block--margin-botoom-39px">
+                                    <h3 class="contacts__title  section-title" >Телефоны:</h3>
+                                    <ul class="contacts__list">
+                                        <li class="contacts__item"><a href="tel:+78002006101" class="section-descr contacts__phone-link">8 800 200-61-01</a></li>
+                                        <li class="contacts__item"><a href="tel:+74955143507" class="section-descr  contacts__phone-link">8 495 514-35-07</a></li>
+                                    </ul>
+                                </div>
+                                <div class="contacts__block contacts__block--flex">
+                                    <h3 class="contacts__title  section-title" >Соцсети:</h3>
+                                    <ul class="social__list">
+                                        <li class="social__item"><a href="#" class="social__link"><img src="{% static 'main\img\contact-page\tg.svg' %}" alt="tg"></a></li>
+                                        <li class="social__item"><a href="#" class="social__link"><img src="{% static 'main\img\contact-page\vk.svg' %}" alt="vk"></a></li>
+                                        <li class="social__item"><a href="#" class="social__link"><img src="{% static 'main\img\contact-page\classmates.svg' %}" alt="classmates"></a></li>
+                                        <li class="social__item"><a href="#" class="social__link"><img src="{% static 'main\img\contact-page\wa.svg' %}" alt="wa"></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </main>
+{% endblock %}
+
+{% block footer %}
+    {% include 'main/footer.html' %}
+{% endblock %}
+
+{% block MyJS %}
+    <!-- Подключение карты -->
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=8c87648f-7783-4d8b-8a1d-def83ae60c99&lang=ru_RU"></script>
+    <script src="{% static 'main\js\map.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,189 @@
+/* ПОДКЛЮЧЕНИЕ СБРОСА СТИЛЕЙ */
+@import url("reset.css");
+
+/* ПОДКЛЮЧЕНИЕ ШРИФТОВ */
+
+/* Regular */
+@font-face {
+    font-family: "SF Pro Display";
+    src: local("SF Pro Display Regular"),
+        url("../fonts/Regular/SFProDisplay-Regular.woff2") format("woff2"),main/fonts/Regular/SFProDisplay-Regular.woff2
+        url("../fonts/Regular/SFProDisplay-Regular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Medium */
+@font-face {
+    font-family: "SF Pro Display";
+    src: local("SF Pro Display Medium"),
+        url("../fonts/Medium/SFProDisplay-Medium.woff2") format("woff2"),
+        url("../fonts/Medium/SFProDisplay-Medium.woff2") format("woff");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Bold */
+@font-face {
+    font-family: "SF Pro Display";
+    src: local("SF Pro Display Bold"),
+        url("../fonts/Bold/SFProDisplay-Bold.woff2") format("woff2"),
+        url("../fonts/Bold/SFProDisplay-Bold.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Heavy */
+@font-face {
+    font-family: "SF Pro Display";
+    src: local("SF Pro Display Heavy"),
+        url("../fonts/Heavy/SFProDisplay-Heavy.woff2") format("woff2"),
+        url("../fonts/Heavy/SFProDisplay-Heavy.woff") format("woff");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* --------------------------------------------------------- */
+
+
+/* БАЗОВЫЕ СТИЛИ */
+
+html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    /* overflow-x: hidden; */
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+:root {
+    --primary-color-white: #FFFCFB;
+    --secondary-color-beige: #FAEDE2;
+
+    --сolor-beige: #FFE27B;
+    --color-light-green: #C1E400;
+    --color-green: #94CE00;
+    --color-orange: #FF7523;
+    --color-yellow: #FFC300;
+    --color-red: #FF3A45;
+
+    --bold-redtxt-color: #973630;
+    --red-txt-color: #CE524A;
+}
+
+.page {
+    min-width: 320px;
+    font-family: 'SF Pro Display', sans-serif;
+    font-weight: normal;
+    overflow-x: hidden;
+    /* background-color: var(--primary-color-white); */
+}
+
+/* --------------------------------------------------------- */
+
+/* ОСНОВНЫЕ СТИЛИ ДЛЯ ОБЩИХ ЭЛЕМЕНТОВ */
+
+.list-reset {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.btn-reset {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.container {
+    max-width: 1750px;
+    width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.section-title {
+    color: #252B42;
+    font-family: SF Pro Display;
+    font-size: 55px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.section-descr {
+    color: #737373;
+    font-family: SF Pro Text;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    letter-spacing: 2px;
+}
+
+
+/* .section-offset {
+} */
+
+.btn {
+    position: relative;
+
+    padding: 13px 55px;
+    border-radius: 10px;
+
+    font-family: SF Pro Display;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase; 
+    color: white;
+    background-color: #96BB7C;
+}
+
+.btn-wrapper{
+    padding: 14px;
+}
+
+
+
+
+
+.stop-scroll{
+    overflow: hidden;
+}
+
+.nav__title {
+    color: var(--red-txt-color);
+    font-family: SF Pro Text;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+}
+
+/* --------------------------------------------------------- */
+
+
+.hide-block{
+    display: none !important;
+}
+

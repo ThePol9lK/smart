@@ -1,0 +1,97 @@
+* HERO */
+.hero__wrapper {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+
+    padding-top: 157px;
+    padding-bottom: 168px;
+}
+.hero__content {
+    max-width: 895px;
+}
+.hero__title {
+    font-family: SF Pro Display;
+    font-size: 69px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 110%; /* 75.9px */
+    margin-bottom: 57px;
+
+    color: var(--red-txt-color);
+}
+.hero__title--bold {
+    color: var(--bold-redtxt-color);
+}
+.hero__descr {
+    margin-bottom: 80px;
+    letter-spacing: 2px;
+}
+.hero__btn {
+    padding: 13px 46px;
+    color: #fff;
+}
+
+/* Cтили для позицирования картинки методом 1 */
+/* .hero__img {
+    position: absolute;
+    right: -63px;
+    top: -27px;
+    pointer-events: none;
+    z-index: -1;
+} */
+
+/* Cтили для позицирования картинки методом 2 */
+.hero__bg{
+    background-image: url('../../img/index/hero/hero__img.png') ;
+    background-repeat: no-repeat;
+    background-position: 951px 22px;
+    background-size: 44% 75%;
+}
+
+.hero__wrapper::after{
+    content: "";
+    position: absolute;
+    top: 64px;
+    right: -5px;
+    width: 836px;
+    height: 638px;
+    z-index: -2;
+    background-image: url('../../img/index/hero/hero-circles.svg');
+
+}
+
+
+
+.service{
+    margin-top: 90px;
+    margin-bottom: 105px;
+    background-color: #DCDCDC;
+}
+.service__wrapper{
+    position: relative;
+}
+.service__title{
+    margin-bottom: 72px;
+    /* padding-left: 125px;
+    background-image: url("../../img/one-course/one-ourse-arrow.svg");
+    background-repeat: no-repeat;*/
+    background-position: center left;
+    text-align: center;
+}
+.service__descr{
+    color: #737373;
+    text-align: center;
+}
+
+.service__descr + .service__descr{
+    margin-top: 52px;
+}
+
+.service__btn{
+    margin-top: 105px;
+}
+
+.service__btn-wide{
+    width: 100%;
+}

@@ -1,0 +1,176 @@
+.future-edctn{
+    margin-top: 134px;
+    margin-bottom: 216px;
+}
+.future-edctn__wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+
+.--bold{
+    color: var(--bold-redtxt-color);
+}
+.future-edctn__txt{
+    max-width: 772px;
+}
+.about__content{
+    margin-bottom: 58px;
+}
+
+.--yellow{
+    color: var(--color-yellow);
+}
+
+.--light-green{
+    color: var(--color-light-green);
+}
+
+.story-video {
+    position: relative;
+    max-width: 860px;
+    max-height: 455px;
+    border-radius: 18px;
+    overflow: hidden;
+
+}
+
+.story-video-btn {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.story-video-overlay {
+	position: absolute;
+	z-index: 99;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.2);
+	transition: opacity 0.2s ease;
+}
+
+.story-video-overlay.hidden {
+	opacity: 0;
+}
+
+.story-video-object {
+	max-width: 100%;
+	height: auto;
+	vertical-align: top;
+}
+
+.question{
+	position: relative;
+	margin-bottom: 153px;
+}
+
+.questions__wrapper{
+	max-width: 733px;
+	margin-left: auto;
+}
+
+.question::after{
+    content: "";
+	position: absolute;
+	top: -29px;
+	left: 131px;
+	width: 822px;
+	height: 835px;
+	z-index: 1;
+	/* background-image: url("../../img/about-page/question-circles.svg"); */
+}
+
+.questions__title{
+    position: relative;
+	margin-bottom: 50px;
+	color: #252B42;
+    text-align: center;
+}
+
+.questions__title::after {
+	content: '';
+	position: absolute;
+	left: 50%;
+	bottom: -15px;
+	transform: translateX(-50%);
+	width: 50%;
+	height: 2px;
+	background-color: #E74040;
+  }
+
+.question__bg{
+	background-image: url("../../img/about-page/question-bg.png");
+	background-repeat: no-repeat;
+	background-position: 0px -15px;
+	background-size: contain;
+}
+
+/* ABOUT */
+
+.about__wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    max-width: 819px;
+    padding-top: 265px;
+    padding-bottom: 179px;
+}
+.about__bg {
+    position: relative;
+    background-image: url('../../img/index/about/kids.png');
+    background-repeat: no-repeat;
+    background-position: 4.3% 53%;
+    background-size: 45% 75%;
+}
+.about__bg::after{
+    content: "";
+    position: absolute;
+    top: 125px;
+    left: 34px;
+    width: 694px;
+    height: 678px;
+    background-image: url('../../img/index/about/about_circles.svg');
+}
+.about__content {
+    margin-bottom: 74px;
+}
+.about__title {
+    margin-bottom: 35px;
+    color: #252B42;
+}
+.about__descr {
+    letter-spacing: 2px;
+}
+.counters {
+    display: flex;
+    gap: 97px;
+}
+.counters__number {
+    font-family: SF Pro Display;
+    font-size: 90px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.counters__name {
+    font-family: SF Pro Text;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%; /* 37.5px */
+}
+.--orange{
+    color: #96BB7C
+
+}
+.--green{
+    color: #737373
+}
+

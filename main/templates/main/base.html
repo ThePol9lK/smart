@@ -1,0 +1,70 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        {% block title %}
+        {% endblock %}
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <!-- ПОДКЛЮЧЕНИЕ CCS -->
+        <link rel="stylesheet" href="{% static 'main\css\base\main.css' %}">
+        <link rel="stylesheet" href="{% static 'main\css\block\header.css' %}">
+        <link rel="stylesheet" href="{% static 'main\css\block\footer.css' %}">
+        <link rel="stylesheet" href="{% static 'main\css\base\media.css' %}">
+        
+        {% block css %}
+        {% endblock %}
+
+    </head>
+
+
+        <header class="header ">
+            <div class="container">
+                <nav class="header-wrapper">
+        
+                    <div class="header-wrapper__logo">
+                        <a href="{% url 'home' %}"><img src="{% static 'main\img\H&F\header\brain.png' %}" alt="logo" class="header__logo"></a>
+                        <div class="header-wrapper_txt">
+                            <p class="header__logo-txt-accent">У м н е й</p>
+                            <p class="header__logo-txt-small">Развивайся</p>
+                        </div>
+                    </div>
+        
+                    {% block header-nav %}
+                    {% endblock %}
+        
+                    <!-- Бургер кнопка -->
+                    
+                </nav>
+            </div>
+        </header>
+
+        {% block main %}
+        {% endblock %}
+
+        {% block footer %}
+        {% endblock %}
+        
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+        <!-- Подключение библиотек    -->
+        <!-- Подключение just-validate -->
+        <script src="./js/libs/just-validate.min.js"></script>
+        <!-- Подключение inputmask -->
+        <script src="./js/libs/inputmask.min.js"></script>
+
+        <!-- Мой JS -->
+        
+        <script src="{% static 'main\js\burger.js' %}"></script>
+        
+        {% block MyJS %}
+        {% endblock %}
+
+    </body>
+
+    
+
+</html>

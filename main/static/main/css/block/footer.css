@@ -1,0 +1,55 @@
+.footer {
+    position: relative;
+    padding: 97px 0 131px 0;
+    background-color: #fff;
+}
+.footer::after{
+    content: "";
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 26px;
+    background: #96BB7C;
+}
+.footer-grid {
+    display: grid;
+    grid-template-columns: minmax(325px, 534px) 280px 140px 220px;
+    justify-content: space-between;
+    align-items: end;
+    gap: 15px;
+}
+.footer__logo {
+    margin-bottom: 55px;
+}
+.footer__logo-wrapper{
+    display: flex;
+    align-items: center;
+    
+}
+.course-list {
+    display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.footer__nav-title{
+    color: #252B42;
+    margin-bottom: 40px;
+}
+.footer-nav__list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.phone-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.social-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}

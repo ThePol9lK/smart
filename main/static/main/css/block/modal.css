@@ -1,0 +1,204 @@
+/* Оформление внутри окна */
+.form__input{
+    padding: 20px 10px 21px 32px;
+        padding-left: 32px;
+      padding-left: 32px;
+      font-family: SF Pro Display;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      color: #737373;
+      background: #fff;
+      width: 280px;
+      padding-left: 32px;
+}
+.form__btn {
+    color: #fff;
+    background-color:#96BB7C;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+/* МОДАЛЬНОЕ ОКНО */
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    overflow-y: auto;
+
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+
+    background-color: rgba(0, 0, 0, .3);
+    visibility: hidden;
+    opacity: 0;
+
+    transition: opacity 0.3 ease-in-out;
+}
+.modal__box {
+    position: relative;
+
+    margin: 30px 15px;
+    max-width: 800px;
+    padding: 30px;
+    border-radius: 40px;
+
+    background-color: #DCDCDC;
+    box-shadow: 2px 4px 23px 10px rgba(146, 183, 255, 0.4);
+}
+.modal__wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    
+}
+.section-title::selection{
+    color: var(--blue);
+    background-color: var(--white);
+}
+.modal__scial-contact{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
+.modal.open{
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.3 ease-in-out;
+}
+
+/* Кнопка закрытия модального окна */
+
+.modal__btn-wrapper{
+    position: absolute;
+    top: -10%;
+    right: -5%;
+}
+
+.modal__close-btn {
+
+    width: 80px;
+    height: 80px;
+    padding: 5px;
+
+    /* border-radius: 50%; */
+    border: none;
+
+    background-color: #96BB7C;
+    box-shadow: 2px 4px 23px 10px rgba(146, 183, 255, 0.4) !important;
+}
+
+/* Отрисовка крестика внутри */
+.closeModal {
+    position: relative;
+    top: 0px;
+    right: 0px;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.closeModal::before,
+.closeModal::after {
+	content: '';
+	position: absolute;
+    top: 45%;
+    left: 10px;
+	display: block;
+	width: 50px;
+	height: 5px;
+	background: var(--primary-color-white);
+    border-radius: 20px;
+}
+
+.closeModal::before {
+	transform: rotate(45deg);
+}
+
+.closeModal::after {
+	transform: rotate(-45deg);
+}
+
+/* Элементы модального окна */
+.modal__tel {
+    font-size: 30px;
+}
+.modal__btn {
+    width: 50%;
+    padding: 20px 0;
+}
+
+
+@media(max-width : 1200px){
+    .closeModal{
+        right: 20px
+    }
+}
+@media(max-width : 992px){
+    .modal__tel{
+        font-size: 25px;
+        line-height: 29px;
+    }
+}
+
+@media(max-width : 768px){
+    .closeModal {
+        right: 10px;
+      }
+    .modal__tel{
+        font-size: 23px;
+    }
+}
+@media(max-width : 576px){
+    .modal__wrapper{
+        gap: 20px;
+    }
+    .modal__scial-contact{
+        gap: 15px;
+    }
+
+    .modal__tel{
+        font-size: 12px;
+        line-height: 15px;
+    }
+    .modal__btn {
+        padding: 10px 0;
+    }
+
+    .modal__close-btn {
+        width: 50px;
+        height: 50px;
+    }
+
+    .closeModal::before,
+    .closeModal::after {
+        width: 20px;
+    }
+
+    .modal__scial-list{
+        column-gap: 15px;
+    }
+}
+@media(max-width : 480px){
+    .modal__box{
+        max-width: 250px;
+    }
+    .form__input{
+        width: 200px;
+        font-size: 12px;
+    }
+    
+}

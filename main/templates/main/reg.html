@@ -1,0 +1,30 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+
+{% block title %}
+    <title>Регистрация</title>
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'main\css\main-tag\log.css' %}">
+{% endblock %}
+
+{% block header-nav %}
+{% endblock %}
+
+{% block main %}
+    <main class="main center container">
+        <form method="post" class="log-form">
+            {% csrf_token %}
+            <h2 class="footer__nav-title h2 nav__title">РЕГИСТРАЦИЯ</h2>
+            {{ form.username.as_widget }}
+            {{ form.password.as_widget }}
+            <button class="log-form__btn btn" type="submit">Зарегестрироваться</button>
+        </form>
+    </main>
+{% endblock %}
+
+{% block MyJS %}
+{% endblock %}
+
