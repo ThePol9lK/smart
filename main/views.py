@@ -1,159 +1,145 @@
 from django.core.mail import send_mail
-from django.shortcuts import render, get_object_or_404,redirect
-from django.http import HttpResponse
-from .models import Course, PreSchool, ExtraClass
-from django.views.generic import DetailView
-from django.http import HttpResponseRedirect
-from .forms import ContactForm
-from django.contrib.auth import authenticate, login, logout
-from django.http import HttpRequest
-from django.urls import reverse
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
+from django.contrib.auth.views import LoginView, LogoutView
+from django.shortcuts import get_object_or_404
+from django.urls import reverse_lazy
+from django.views.generic import DetailView, ListView, CreateView, TemplateView
 
-from .forms import RegistrationForm
+from .models import Course, CourseType
+from .forms import ContactForm, RegistrationForm
 
 
-def register(request):
-    if request.method == 'POST':
-        form = RegistrationForm(request.POST)
-        if form.is_valid():
-            username = form.cleaned_data['username']
-           # email = form.cleaned_data['email']
-            password = form.cleaned_data['password']
-            user = User.objects.create_user(username=username, password=password)
-            return redirect('login')  # 
-    else:
-        form = RegistrationForm()
-    return render(request, 'main/reg.html', {'form': form})
+class UserRegisterView(CreateView):
+    """
+    Представление для регистрации нового пользователя.
+    Отображает форму для регистрации и обрабатывает отправку данных.
+    После успешной регистрации пользователя перенаправляет на страницу входа.
+    """
+    form_class = RegistrationForm
+    template_name = "main/reg.html"
+    success_url = reverse_lazy("login")
 
 
-def logout_view(request: HttpRequest):
-    logout(request)
-    return redirect(reverse("login"))
+class UserLoginView(LoginView):
+    """
+    Представление для входа пользователя.
+    Обрабатывает запросы на вход и перенаправляет на главную страницу после успешной аутентификации.
+    """
+    template_name = "main/log.html"
 
-def login_view(request: HttpRequest):
-    if request.method == "GET":
-        if request.user.is_authenticated:
-            return redirect("home")
-        else:
-            return render(request,"main/log.html" )
-        
-    username = request.POST["username"]
-    password = request.POST["password"]
-    
-    user = authenticate(request, username = username, password = password)
-    if user is not None:
-        login(request, user)
-        return redirect("home")
-    return render(request,"main/log.html" , {"error" : "Invalid login credetionals"})
-        
-
-# # Отправка письма
-# def submit_form(request):
-#     if request.method == 'POST':
-#         name = request.POST.get('name', '')
-#         phone = request.POST.get('phone', '')
-#
-#         # Отправка письма
-#         send_mail(
-#             'Новая заявка',
-#             f'Имя: {name}\nНомер телефона: {phone}',
-#             'ваш_email@gmail.com',
-#             ['получатель@gmail.com'],
-#             fail_silently=False,
-#         )
-#
-#         return HttpResponseRedirect('')  # Перенаправление на страницу успешной отправки
-#     else:
-#         return render(request, "main/index.html")
+    def get_success_url(self):
+        """
+        Метод для получения URL после успешного входа.
+        Перенаправляет пользователя на главную страницу.
+        """
+        return reverse_lazy("home")
 
 
-# class CourseDetailView(DetailView):
-#     model = Course
-#     template_name ='main/one-course.html'
-#     context_object_name = 'desk'
-
-#     def get_object(self):
-#         title = self.kwargs.get('title')
-#         return get_object_or_404(Course, title=title)
-@login_required
-def course_detail_view(request, title):
-    course = get_object_or_404(Course, title=title)
-    context = {'desk': course}
-    return render(request, 'main/one-course.html', context)
-
-# class PreSchoolDetailView(DetailView):
-#     model = PreSchool
-#     template_name ='main/one-course.html'
-#     context_object_name = 'desk'
-
-#     def get_object(self):
-#         title = self.kwargs.get('title')
-#         return get_object_or_404(PreSchool, title=title)
-@login_required
-def pre_school_detail_view(request, title):
-    pre_school = get_object_or_404(PreSchool, title=title)
-    context = {'desk': pre_school}
-    return render(request, 'main/one-course.html', context)
-
-# class ExtraClasslDetailView(DetailView):
-#     model = ExtraClass
-#     template_name ='main/one-course.html'
-#     context_object_name = 'desk'
-
-#     def get_object(self):
-#         title = self.kwargs.get('title')
-#         return get_object_or_404(ExtraClass, title=title)
-@login_required
-def extra_class_detail_view(request, title):
-    extra_class = get_object_or_404(ExtraClass, title=title)
-    context = {'desk': extra_class}
-    return render(request, 'main/one-course.html', context)
-
-def index(request):
-    return render(request, "main/index.html")
+class UserLogoutView(LogoutView):
+    """
+    Представление для выхода пользователя.
+    После выхода из системы перенаправляет на страницу входа.
+    """
+    next_page = reverse_lazy("login")
 
 
-def course(request):
-    courses = Course.objects.all()
-    preSchool = PreSchool.objects.all()
-    extraClass = ExtraClass.objects.all()
+class CourseDetailView(DetailView):
+    """
+    Представление для отображения подробной информации о курсе.
+    Отображает данные конкретного курса, полученные через параметр 'slug' в URL.
+    Включает информацию о типе курса.
+    """
+    model = Course
+    template_name = "main/one-course.html"
+    context_object_name = "course"
 
-    # Cоединение бд для последующей передачи на страницу
-    context = {
-        'courses': courses,
-        'preSchool': preSchool,
-        'extraClass': extraClass,
-    }
-    return render(request, "main/course.html", context)
+    def get_object(self, queryset=None):
+        """
+        Метод для получения курса по slug.
+        Использует slug для поиска курса в базе данных.
+        """
+        slug = self.kwargs.get("slug")
+        return get_object_or_404(Course, slug=slug)
 
 
+class CourseListView(ListView):
+    """
+    Представление для отображения списка всех курсов.
+    Фильтрует курсы по типу, используя связь с моделью CourseType.
+    """
+    model = Course
+    template_name = "main/course.html"
+    context_object_name = "courses"
+
+    def get_queryset(self):
+        """
+        Метод для получения курсов по типу.
+        Если параметр 'type_slug' передан в URL, фильтрует курсы по типу.
+        """
+        type_slug = self.kwargs.get("type_slug")
+        if type_slug:
+            course_type = get_object_or_404(CourseType, slug=type_slug)
+            return Course.objects.filter(course_type=course_type)
+        return Course.objects.all()
+
+    def get_context_data(self, **kwargs):
+        """
+        Добавляет список типов курсов в контекст для отображения на странице.
+        """
+        context = super().get_context_data(**kwargs)
+        context["course_types"] = CourseType.objects.all()
+        return context
 
 
-def about(request):
-    return render(request, "main/about.html")
+class IndexView(TemplateView):
+    """
+    Представление для отображения главной страницы с курсами.
+    """
+    template_name = "main/index.html"
 
-def contatcs(request):
-    return render(request, "main/contacts.html")
 
-def contact(request):
-    if request.method == 'POST':
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            name = form.cleaned_data['name']
-            phone = form.cleaned_data['phone']
-            message = 'Имя: {}\nТелефон: {}'.format(name, phone)
-            send_mail(
-                'Новое сообщение от пользователя',
-                message,
-                'ssmart.4dmin@yandex.ru', # Адрес отправителя
-                ['master_yoda_man@mail.ru'], # Адрес получателя
-                #пороль : max214zet
-                fail_silently=False,
-            )
-            return render(request, 'main/index.html')
-    else:
-        form = ContactForm()
-    return render(request, 'main/index.html', {'form': form})
+class AboutView(TemplateView):
+    """
+    Представление для страницы 'О нас'.
+    Отображает информацию о компании или организации.
+    """
+    template_name = "main/about.html"
 
+
+class ContactsView(TemplateView):
+    """
+    Представление для страницы контактов.
+    Отображает страницу с контактной информацией.
+    """
+    template_name = "main/contacts.html"
+
+
+class ContactFormView(CreateView):
+    """
+    Представление для обработки формы обратной связи.
+    При отправке формы собирает данные и отправляет их на указанный email.
+    """
+    form_class = ContactForm
+    template_name = "main/index.html"
+
+    def form_valid(self, form):
+        """
+        Метод для обработки успешной отправки формы.
+        Отправляет email с данными формы на указанный адрес.
+        """
+        name = form.cleaned_data["name"]
+        phone = form.cleaned_data["phone"]
+        message = f"Имя: {name}\nТелефон: {phone}"
+        send_mail(
+            "Новое сообщение от пользователя",
+            message,
+            "ssmart.4dmin@yandex.ru",
+            ["master_yoda_man@mail.ru"],
+            fail_silently=False,
+        )
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        """
+        Метод для перенаправления на главную страницу после успешной отправки формы.
+        """
+        return reverse_lazy("home")

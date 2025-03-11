@@ -1,19 +1,38 @@
 from django.urls import path
-from . import views
-
-
+from .views import (
+    IndexView,
+    AboutView,
+    ContactsView,
+    CourseListView,
+    CourseDetailView,
+    ContactFormView,
+    UserLoginView,
+    UserLogoutView,
+    UserRegisterView,
+)
 
 urlpatterns = [
-    path('', views.index, name = 'home'),
-    path('course', views.course, name = 'course'),
-    path('about', views.about, name = 'about'),
-    path('contacts', views.contatcs, name = 'contacts'),
-    path('course/<str:title>', views.course_detail_view, name = 'course-detail'),
-    path('course2/<str:title>', views.pre_school_detail_view, name = 'course-detail2'),
-    path('course3/<str:title>', views.extra_class_detail_view, name = 'course-detail3'),
-    path('send_message/', views.contact, name='send_message'),
-    path('login/', views.login_view, name = "login"),
-    path("logout/", views.logout_view, name="logout"),
-    path('register/', views.register, name='register'),
-]
+    # Главная страница
+    path('', IndexView.as_view(), name='home'),
 
+    # Страница "О нас"
+    path('about/', AboutView.as_view(), name='about'),
+
+    # Страница "Контакты"
+    path('contacts/', ContactsView.as_view(), name='contacts'),
+
+    # Список всех курсов (с возможностью фильтрации по типу)
+    path('courses/', CourseListView.as_view(), name='course'),
+    path('courses/<slug:type_slug>/', CourseListView.as_view(), name='course-list-filtered'),
+
+    # Детальная информация о курсе
+    path('course/<slug:slug>/', CourseDetailView.as_view(), name='course-detail'),
+
+    # Форма обратной связи
+    path('send_message/', ContactFormView.as_view(), name='send_message'),
+
+    # Аутентификация
+    path('login/', UserLoginView.as_view(), name='login'),
+    path('logout/', UserLogoutView.as_view(), name='logout'),
+    path('register/', UserRegisterView.as_view(), name='register'),
+]

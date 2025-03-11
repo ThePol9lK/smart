@@ -132,16 +132,12 @@ img {
 .section-descr {
     color: #737373;
     font-family: SF Pro Text;
-    font-size: 25px;
+    font-size: 20px;
     font-style: normal;
     font-weight: 400;
     line-height: 150%;
     letter-spacing: 2px;
 }
-
-
-/* .section-offset {
-} */
 
 .btn {
     position: relative;

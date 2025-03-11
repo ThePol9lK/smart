@@ -18,8 +18,8 @@
         <form method="post" class="log-form">
             {% csrf_token %}
             <h2 class="footer__nav-title h2 nav__title">РЕГИСТРАЦИЯ</h2>
-            {{ form.username.as_widget }}
-            {{ form.password.as_widget }}
+            {{ form.username }}
+            {{ form.password }}
             <button class="log-form__btn btn" type="submit">Зарегестрироваться</button>
         </form>
     </main>
@@ -27,4 +27,6 @@
 
 {% block MyJS %}
 {% endblock %}
+
+
 
